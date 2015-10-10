@@ -40,6 +40,8 @@ set(keepassx_SOURCES
     autotype/test/AutoTypeTestInterface.h
     core/AutoTypeAssociations.cpp
     core/Config.cpp
+    core/FileSystemWatcher.cpp
+    core/FileSystemWatcher.h
     core/Database.cpp
     core/DatabaseIcons.cpp
     core/Endian.cpp
