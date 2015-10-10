@@ -928,6 +928,11 @@ void DatabaseWidget::databaseModifedExternally()
     if ( ! config()->get("AutoReloadOnChange").toBool() ) 
         return;
 
+    /* Cancel edit mode before reloading; avoids segfault later */
+    if ( isInEditMode() )
+      /* FIXME: prompt to handle unsaved changes, like PR#12 */
+      switchToView(false);
+
     KeePass2Reader reader;
     QFile file(m_filename);
     if (!file.open(QIODevice::ReadOnly)) {
